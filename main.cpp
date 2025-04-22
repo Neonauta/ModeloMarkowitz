@@ -3,7 +3,7 @@ using namespace std;
 
 //Función para dar lectura completa a un arreglo.
 void PrintArreglo(int arr[], int size);
-//Función para ordenar activos de menor a mayor (usando Insert Sort).
+//Función para ordenar activos de menor a mayor (usando Insertion Sort).
 void ArregloInversiones(int activos[], int size);
 
 int main (int argc, char** argv) {
@@ -12,6 +12,8 @@ int main (int argc, char** argv) {
     cout << "Ingrese el numero de activos en su cartera: "; cin >> n;
     int activos[n] = {};
 
+    //Ciclo while para leer los i activos que ingresa el usuario.
+    //Según el modelo estos son los activos finaniceros diversificados para construir la cartera óptima.
     while (i <= n-1) {
         cout << "Ingresa el valor del activo " << i+1 << " de la cartera (MXN): ";
         cin >> m ; cout << std::endl;
@@ -22,7 +24,7 @@ int main (int argc, char** argv) {
     cout << "Lista de valores de sus activos: " << std::endl;
     PrintArreglo(activos,n);
     ArregloInversiones(activos,n);
-    cout << std::endl << "Sus activos ordenados de mayor a menor: ";
+    cout << std::endl << "Sus activos ordenados de mayor a menor: " << std::endl;
     PrintArreglo(activos,n);
  }
 
