@@ -5,6 +5,8 @@ using namespace std;
 void PrintArreglo(int arr[], int size);
 //Función para ordenar activos de menor a mayor (usando Insertion Sort).
 void ArregloInversiones(int activos[], int size);
+//Función para el cálculo del Retorno de Inversión (ROI);
+void RetornoInversion(int activos[]);
 
 int main (int argc, char** argv) {
     int n,m,i=0;
@@ -46,4 +48,9 @@ void ArregloInversiones(int activos[], int size) {
 
         activos[j + 1] = pivot;
     }
+}
+
+void RetornoInversion(int activos[]) {
+    //ROI = (Ganancias - Costos) / Costos;
+    // Por ejemplo, si una empresa invierte $1,000 en publicidad y obtiene una ganancia de $1,500, su ROI sería del 50%.
 }
