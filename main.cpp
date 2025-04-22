@@ -13,7 +13,7 @@ int main (int argc, char** argv) {
     int activos[n] = {};
 
     //Ciclo while para leer los i activos que ingresa el usuario.
-    //Según el modelo estos son los activos finaniceros diversificados para construir la cartera óptima.
+    //Según el modelo estos son los activos financieros diversificados para construir la cartera óptima.
     while (i <= n-1) {
         cout << "Ingresa el valor del activo " << i+1 << " de la cartera (MXN): ";
         cin >> m ; cout << std::endl;
