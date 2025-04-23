@@ -3,19 +3,20 @@
 using namespace std;
 
 //Función para dar lectura completa a un arreglo.
-void PrintArreglo(int arr[], int size);
+void PrintArreglo(float arr[], int size);
 //Función para ordenar activos de menor a mayor (usando Insertion Sort).
-void ArregloInversiones(int activos[], int size);
+void ArregloInversiones(float activos[], int size);
 //Función de conversión de un arreglo a vector.
 void Vectorizador(int arr[], int size);
 //Función para el cálculo del Retorno de Inversión (ROI);
-void RetornoInversion(int activos[], int size);
+void RetornoInversion(const float activos[], int size);
 
 int main (int argc, char** argv) {
-    int n,m,i=0;
+    int n,i=0;
+    float m;
 
     cout << "Ingrese el numero de activos en su cartera: "; cin >> n;
-    int activos[n] = {};
+    float activos[n] = {};
 
     //Ciclo while para leer los i activos que ingresa el usuario.
     //Según el modelo estos son los activos financieros diversificados para construir la cartera óptima.
@@ -29,8 +30,9 @@ int main (int argc, char** argv) {
     cout << "Lista de valores de sus activos: " << std::endl;
     PrintArreglo(activos,n);
     ArregloInversiones(activos,n);
-    cout << std::endl << "Sus activos ordenados de mayor a menor: " << std::endl;
-    PrintArreglo(activos,n);
+    // cout << std::endl << "Sus activos ordenados de mayor a menor: " << std::endl;
+    // PrintArreglo(activos,n);
+    RetornoInversion(activos, n);
  }
 
 //Función para convertir arreglo en un vector.
@@ -39,15 +41,15 @@ void Vectorizador(int arr[], int size) {
     for (auto i : vector) cout << i << " ";
 }
 
-void PrintArreglo(int arr[], int size) {
+void PrintArreglo(float arr[], int size) {
     for (int i = 0; i < size ;i++) {
         cout<<arr[i]<<" ";
     }
 }
 
-void ArregloInversiones(int activos[], int size) {
+void ArregloInversiones(float activos[], int size) {
     for (int i = 1; i < size; ++i) {
-        int pivot = activos[i];
+        float pivot = activos[i];
         int j = i - 1;
 
         while (j >= 0 && activos[j] > pivot) {
@@ -59,19 +61,22 @@ void ArregloInversiones(int activos[], int size) {
     }
 }
 
-void RetornoInversion(int activos[], int size) {
-    int ROI[size] = {};
+void RetornoInversion(const float activos[], int size) {
+    float ROI[size] = {};
+    float ganancias[size] = {};
     //ROI = (Ganancias - Costos) / Costos;
     // Por ejemplo, si una empresa invierte $1,000 en publicidad y obtiene una ganancia de $1,500, su ROI sería del 50%.
-    int n,m,i=0;
+    int i=0;
+    float g;
 
     //Ciclo while para leer las ganancias por activo ya ingresado.
-    while (i <= n-1) {
-        cout << "Ingresa las ganancias del activo " << i+1 << " de la cartera (MXN): ";
-        cin >> m ; cout << std::endl;
-        ROI[i] = m;
+    while (i <= size-1) {
+        cout << std::endl << "Ingresa las ganancias del activo " << i+1 << " de la cartera (MXN): ";
+        cin >> g ; cout << std::endl;
+        ganancias[i] = g;
+        ROI[i] = ((ganancias[i] - activos[i]) / activos[i])*100;
+        //ROI[i] = roi;
         i++;
     }
-
-
+    PrintArreglo(ROI,size);
 }
