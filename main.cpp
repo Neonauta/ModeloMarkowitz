@@ -1,12 +1,15 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 //Función para dar lectura completa a un arreglo.
 void PrintArreglo(int arr[], int size);
 //Función para ordenar activos de menor a mayor (usando Insertion Sort).
 void ArregloInversiones(int activos[], int size);
+//Función de conversión de un arreglo a vector.
+void Vectorizador(int arr[], int size);
 //Función para el cálculo del Retorno de Inversión (ROI);
-void RetornoInversion(int activos[]);
+void RetornoInversion(int activos[], int size);
 
 int main (int argc, char** argv) {
     int n,m,i=0;
@@ -30,6 +33,12 @@ int main (int argc, char** argv) {
     PrintArreglo(activos,n);
  }
 
+//Función para convertir arreglo en un vector.
+void Vectorizador(int arr[], int size) {
+    vector<int> vector(arr,arr+size);
+    for (auto i : vector) cout << i << " ";
+}
+
 void PrintArreglo(int arr[], int size) {
     for (int i = 0; i < size ;i++) {
         cout<<arr[i]<<" ";
@@ -50,7 +59,19 @@ void ArregloInversiones(int activos[], int size) {
     }
 }
 
-void RetornoInversion(int activos[]) {
+void RetornoInversion(int activos[], int size) {
+    int ROI[size] = {};
     //ROI = (Ganancias - Costos) / Costos;
     // Por ejemplo, si una empresa invierte $1,000 en publicidad y obtiene una ganancia de $1,500, su ROI sería del 50%.
+    int n,m,i=0;
+
+    //Ciclo while para leer las ganancias por activo ya ingresado.
+    while (i <= n-1) {
+        cout << "Ingresa las ganancias del activo " << i+1 << " de la cartera (MXN): ";
+        cin >> m ; cout << std::endl;
+        ROI[i] = m;
+        i++;
+    }
+
+
 }
