@@ -1,19 +1,16 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 //Función para dar lectura completa a un arreglo.
 void PrintArreglo(float arr[], int size);
 //Función para ordenar activos de menor a mayor (usando Insertion Sort).
 void ArregloInversiones(float activos[], int size);
-//Función de conversión de un arreglo a vector.
-void Vectorizador(int arr[], int size);
 //Función para el cálculo del Retorno de Inversión (ROI);
 void RetornoInversion(const float activos[], int size);
 
 int main (int argc, char** argv) {
     int n,i=0;
-    float m;
+    float m; //delcarado en float para porcentajes posteriores que se calculan.
 
     cout << "Ingrese el numero de activos en su cartera: "; cin >> n;
     float activos[n] = {};
@@ -34,12 +31,6 @@ int main (int argc, char** argv) {
     // PrintArreglo(activos,n);
     RetornoInversion(activos, n);
  }
-
-//Función para convertir arreglo en un vector.
-void Vectorizador(int arr[], int size) {
-    vector<int> vector(arr,arr+size);
-    for (auto i : vector) cout << i << " ";
-}
 
 void PrintArreglo(float arr[], int size) {
     for (int i = 0; i < size ;i++) {
@@ -64,8 +55,6 @@ void ArregloInversiones(float activos[], int size) {
 void RetornoInversion(const float activos[], int size) {
     float ROI[size] = {};
     float ganancias[size] = {};
-    //ROI = (Ganancias - Costos) / Costos;
-    // Por ejemplo, si una empresa invierte $1,000 en publicidad y obtiene una ganancia de $1,500, su ROI sería del 50%.
     int i=0;
     float g;
 
@@ -74,6 +63,8 @@ void RetornoInversion(const float activos[], int size) {
         cout << std::endl << "Ingresa las ganancias del activo " << i+1 << " de la cartera (MXN): ";
         cin >> g ; cout << std::endl;
         ganancias[i] = g;
+        //Aquí se está calculando el Retorno de Inversión por activo asumiendo que los datos históricos ya
+        //proporcionan ganancias de cada uno.
         ROI[i] = ((ganancias[i] - activos[i]) / activos[i])*100;
         //ROI[i] = roi;
         i++;
