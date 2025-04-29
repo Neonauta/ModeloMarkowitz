@@ -75,5 +75,7 @@ void RetornoInversion(const float activos[], int size) {
 }
 
 void RendimientoEsperado(const float activos[], int size) {
-
+    int NPOcurrencias = 3; //3 = Escenarios Optimista, Normal y Pesimista.
+    float REsperado[size] = {};
+    float POcurrencias[NPOcurrencias] = {};
 }
