@@ -7,10 +7,12 @@ void PrintArreglo(float arr[], int size);
 void ArregloInversiones(float activos[], int size);
 //Función para el cálculo del Retorno de Inversión (ROI);
 void RetornoInversion(const float activos[], int size);
+//Función para cálculo de Rendimientos Esperados por Inversión.
+void RendimientoEsperado(const float activos[], int size);
 
 int main (int argc, char** argv) {
     int n,i=0;
-    float m; //delcarado en float para porcentajes posteriores que se calculan.
+    float m; //declarado en float para porcentajes posteriores que se calculan.
 
     cout << "Ingrese el numero de activos en su cartera: "; cin >> n;
     float activos[n] = {};
@@ -70,4 +72,8 @@ void RetornoInversion(const float activos[], int size) {
         i++;
     }
     PrintArreglo(ROI,size);
+}
+
+void RendimientoEsperado(const float activos[], int size) {
+
 }
